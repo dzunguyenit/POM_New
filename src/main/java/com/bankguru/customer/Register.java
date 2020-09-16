@@ -1,5 +1,7 @@
 package com.bankguru.customer;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
@@ -8,6 +10,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.CommonPages.CommonTestcases;
+import com.CommonPages.ExcelUtil;
 import com.bankguru.HomePage;
 import com.bankguru.LoginPage;
 import com.bankguru.RegisterPage;
@@ -18,6 +21,7 @@ public class Register extends CommonTestcases {
 	RegisterPage registerPage;
 	HomePage homePage;
 	String userPath = System.getProperty("user.dir");
+	ExcelUtil readExcel;
 
 	String email;
 	static String emailLogin, passwordLogin;
@@ -28,19 +32,23 @@ public class Register extends CommonTestcases {
 
 		log.info("----------OPEN BROWSER-----------");
 		driver = openMultiBrowser(browser, version, url);
+		readExcel = new ExcelUtil();
+		String excelPath = System.getProperty("user.dir").concat("/data/BinanceAccount.xlsx");
+		
+		List<String> listAccount = readExcel.getAccountInfo(excelPath);
+	
+		String username = listAccount.get(0);
+		String passsword = listAccount.get(1);
 
-		email = "vu" + randomEmail() + "@gmail.com";
-
-		log.info("----------OPEN BROWSER-----------");
+		log.info("-----Email--------   =  " + email);
 
 	}
 
 	@Test
 	public void getAccountRegister() {
-		loginPage = PageFactory.initElements(driver, LoginPage.class);
-		registerPage = loginPage.clickHereLink();
+		registerPage = PageFactory.initElements(driver, RegisterPage.class);
 		registerPage.inputEmail(email);
-		registerPage.clickSubmitButton();
+//		registerPage.clickSubmitButton();
 		emailLogin = registerPage.getUserIDInfo();
 		passwordLogin = registerPage.getPasswordIDInfo();
 	}
