@@ -1,0 +1,96 @@
+2020-09-16 18:38:55,543 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-16 18:39:00,492 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-16 18:39:05,017 INFO  com.bankguru.customer.NewCustomer - ----------OPEN BROWSER-----------
+2020-09-16 18:39:11,239 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:12,395 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Button Tab Name Field
+2020-09-16 18:39:12,579 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Username Error
+2020-09-16 18:39:12,701 INFO  com.bankguru.customer.NewCustomer - TC_100_NameCannotEmpty
+2020-09-16 18:39:13,550 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:14,064 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Nummeric Name Field
+2020-09-16 18:39:14,309 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Username Error
+2020-09-16 18:39:14,452 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:15,199 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Special Character Name Field
+2020-09-16 18:39:15,386 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Username Error
+2020-09-16 18:39:15,517 INFO  com.bankguru.customer.NewCustomer - TC_101_NameCannotEmpty
+2020-09-16 18:39:16,642 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:17,197 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Space Character Name Field
+2020-09-16 18:39:17,416 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Username Error
+2020-09-16 18:39:17,525 INFO  com.bankguru.customer.NewCustomer - TC_102_NameCannotEmpty
+2020-09-16 18:39:18,349 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:18,883 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Button Tab Addres sField
+2020-09-16 18:39:19,131 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Address Error
+2020-09-16 18:39:19,234 INFO  com.bankguru.customer.NewCustomer - TC_102_NameCannotEmpty
+2020-09-16 18:39:20,022 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:20,605 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Space Address Field
+2020-09-16 18:39:20,817 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Address Error
+2020-09-16 18:39:20,941 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:21,751 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Button Tab City Field
+2020-09-16 18:39:21,984 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text City Error
+2020-09-16 18:39:22,091 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:23,215 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Nummeric City Field
+2020-09-16 18:39:23,457 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text City Error
+2020-09-16 18:39:23,603 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:24,380 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Special Character City Field
+2020-09-16 18:39:24,613 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text City Error
+2020-09-16 18:39:24,729 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:25,530 INFO  com.bankguru.customer.NewCustomer - TC_100_NameCannotEmpty
+2020-09-16 18:39:26,091 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:27,216 INFO  com.bankguru.customer.NewCustomer - TC_101_NameCannotEmpty
+2020-09-16 18:39:27,767 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:28,882 INFO  com.bankguru.customer.NewCustomer - TC_102_NameCannotEmpty
+2020-09-16 18:39:29,466 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:30,599 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Space Address Field
+2020-09-16 18:39:30,863 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Address Error
+2020-09-16 18:39:31,007 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:31,768 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Tab State Field
+2020-09-16 18:39:32,023 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text State Error
+2020-09-16 18:39:32,131 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:32,935 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Nummeric State Field
+2020-09-16 18:39:33,162 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text State Error
+2020-09-16 18:39:33,291 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:34,089 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Special Character State Field
+2020-09-16 18:39:34,340 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text State Error
+2020-09-16 18:39:34,468 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:35,223 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Space State Field
+2020-09-16 18:39:35,397 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text State Error
+2020-09-16 18:39:35,526 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:36,413 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Char Pin Field
+2020-09-16 18:39:36,637 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Pin Error
+2020-09-16 18:39:36,725 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:37,576 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Tab Pin Field
+2020-09-16 18:39:37,781 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Pin Error
+2020-09-16 18:39:37,888 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:38,749 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Digit
+2020-09-16 18:39:38,982 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Pin Error
+2020-09-16 18:39:39,093 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:39,901 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Special Character Pin Field
+2020-09-16 18:39:40,140 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Pin Error
+2020-09-16 18:39:40,250 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:41,046 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Space Pin Field
+2020-09-16 18:39:41,292 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Pin Error
+2020-09-16 18:39:41,433 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:42,216 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Blank Space Pin Field
+2020-09-16 18:39:42,523 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Pin Error
+2020-09-16 18:39:42,684 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:43,388 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Tab Telephone Field
+2020-09-16 18:39:43,570 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Telephone Error
+2020-09-16 18:39:43,688 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:44,554 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Space TelePhone Field
+2020-09-16 18:39:44,748 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Telephone Error
+2020-09-16 18:39:44,901 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:45,734 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Blank Space Telephone Field
+2020-09-16 18:39:45,967 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Telephone Error
+2020-09-16 18:39:46,107 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:47,263 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Special Character TelePhone Field
+2020-09-16 18:39:47,520 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Telephone Error
+2020-09-16 18:39:47,660 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:48,436 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Emaile Field
+2020-09-16 18:39:48,686 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Email Error
+2020-09-16 18:39:48,818 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:49,597 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Enter Incorrect Email
+2020-09-16 18:39:49,873 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Email Error
+2020-09-16 18:39:49,999 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:50,750 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 02 - Press Space Email Field
+2020-09-16 18:39:50,950 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 03 - Verify Text Email Error
+2020-09-16 18:39:51,070 INFO  com.bankguru.customer.NewCustomer - New Customer_01 Step 01 - Open New Customer Page
+2020-09-16 18:39:56,087 INFO  com.bankguru.customer.NewCustomer - ----------CLOSE BROWSER-----------
