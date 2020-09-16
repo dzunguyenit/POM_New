@@ -1,6 +1,5 @@
-	package com.bankguru.customer;
+package com.bankguru.customer;
 
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
@@ -11,7 +10,6 @@ import org.testng.annotations.Test;
 import org.w3c.dom.Element;
 
 import com.CommonPages.CommonTestcases;
-import com.CommonPages.ManageEnviroment.Environment;
 import com.bankguru.HomePage;
 import com.bankguru.LoginPage;
 import com.bankguru.NewCustomerPage;
@@ -19,7 +17,6 @@ import com.bankguru.builder.NewCustomerBuilder;
 import com.bankguru.builder.NewCustomerBuilder.Customer.CustomerAccount;
 
 public class NewCustomer extends CommonTestcases {
-	Environment urlEnvironment;
 	WebDriver driver;
 	private LoginPage loginPage;
 	private HomePage homePage;
@@ -29,18 +26,14 @@ public class NewCustomer extends CommonTestcases {
 	static String customerId;
 	String userPath = System.getProperty("user.dir");
 
-	@Parameters({ "browser", "environment", "version", "dataXml" })
+	@Parameters({ "browser", "version", "url" })
 	@BeforeClass
-	public void beforeClass(String browser, String environment, String version, String dataXml) {
-		email = "vu" + randomEmail() + "@gmail.com";
-		ConfigFactory.setProperty("env", environment);
-		urlEnvironment = ConfigFactory.create(Environment.class);
+	public void beforeClass(String browser, String version, String url) {
 
-		String pathDataXml = userPath.concat("/data/").concat(dataXml);
+		String pathDataXml = userPath.concat("/data/BankGuru.xml");
 		data = readXmlFile(pathDataXml);
-
 		log.info("----------OPEN BROWSER-----------");
-		driver = openMultiBrowser(browser, urlEnvironment.url(), version);
+		driver = openMultiBrowser(browser, version, url);
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 
 		loginPage.inputEmail(Register.emailLogin);

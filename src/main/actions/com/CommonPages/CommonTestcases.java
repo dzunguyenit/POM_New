@@ -34,7 +34,7 @@ public class CommonTestcases {
 		log = LogFactory.getLog(getClass());
 	}
 
-	public WebDriver openMultiBrowser(String browser, String url, String version) {
+	public WebDriver openMultiBrowser(String browser, String version, String url) {
 		if (browser.equals("ie")) {
 			InternetExplorerDriverManager.getInstance().version(version).setup();
 			driver = new InternetExplorerDriver();
