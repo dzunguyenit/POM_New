@@ -3,7 +3,7 @@
 	<test name="New Customer, Edit Customer on Chrome">
 		<parameter name="browser" value="chrome" />
 		<parameter name="version" value="84.0.4147.30" />
-		<parameter name="url" value="http://demo.guru99.com/v4/" />
+		<parameter name="url" value="https://www.binance.com/en" />
 		<classes>
 			<class name="com.bankguru.customer.Register" />
 			<class name="com.bankguru.customer.NewCustomer" />

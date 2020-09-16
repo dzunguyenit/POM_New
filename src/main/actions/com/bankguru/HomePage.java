@@ -3,7 +3,6 @@ package com.bankguru;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import com.CommonPages.CommonFuntions;
 
@@ -37,18 +36,6 @@ public class HomePage extends CommonFuntions {
 	public void inputPassword(String password) {
 		waitVisible(PASSWORD_TXT);
 		input(PASSWORD_TXT, password);
-	}
-
-	public EditCustomerPage openEditCustomerPage() {
-		waitVisible(EDIT_CUSTOMER_LINK);
-		click(EDIT_CUSTOMER_LINK);
-		return PageFactory.initElements(driver, EditCustomerPage.class);
-	}
-
-	public NewCustomerPage openNewCustomerPage() {
-		waitVisible(NEWCUSTOMER_CUSTOMER_LINK);
-		click(NEWCUSTOMER_CUSTOMER_LINK);
-		return PageFactory.initElements(driver, NewCustomerPage.class);
 	}
 
 }

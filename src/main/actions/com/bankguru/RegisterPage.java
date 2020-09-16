@@ -13,8 +13,8 @@ public class RegisterPage extends CommonFuntions {
 		super(driver);
 	}
 
-	@FindBy(name = "btnLogin")
-	WebElement SUBMIT_BTN;
+	@FindBy(id = "header_register")
+	WebElement registerBtn;
 
 	@FindBy(name = "emailid")
 	WebElement EMAIL_ID_TXT;
@@ -30,9 +30,9 @@ public class RegisterPage extends CommonFuntions {
 		input(EMAIL_ID_TXT, emailValue);
 	}
 
-	public void clickSubmitButton() {
-		waitVisible(SUBMIT_BTN);
-		click(SUBMIT_BTN);
+	public void clickRegister() {
+		waitVisible(registerBtn);
+		click(registerBtn);
 	}
 
 	public String getUserIDInfo() {

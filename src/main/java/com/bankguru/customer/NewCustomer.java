@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 import org.w3c.dom.Element;
 
 import com.CommonPages.CommonTestcases;
-import com.bankguru.HomePage;
 import com.bankguru.LoginPage;
 import com.bankguru.NewCustomerPage;
 import com.bankguru.builder.NewCustomerBuilder;
@@ -19,7 +18,6 @@ import com.bankguru.builder.NewCustomerBuilder.Customer.CustomerAccount;
 public class NewCustomer extends CommonTestcases {
 	WebDriver driver;
 	private LoginPage loginPage;
-	private HomePage homePage;
 	private NewCustomerPage newCustomerPage;
 	String email;
 	Element data;
@@ -38,32 +36,12 @@ public class NewCustomer extends CommonTestcases {
 
 		loginPage.inputEmail(Register.emailLogin);
 		loginPage.inputPassword(Register.passwordLogin);
-		homePage = loginPage.clickSubmitButton();
 
 	}
 
 	@BeforeMethod
 	public void beforeMethod() {
 		log.info("New Customer_01 Step 01 - Open New Customer Page");
-		newCustomerPage = homePage.openNewCustomerPage();
-	}
-
-	@Test
-	public void TC_100_NameCannotEmpty() {
-		log.info("TC_100_NameCannotEmpty");
-		newCustomerPage = homePage.openNewCustomerPage();
-	}
-
-	@Test
-	public void TC_101_NameCannotEmpty() {
-		log.info("TC_101_NameCannotEmpty");
-		newCustomerPage = homePage.openNewCustomerPage();
-	}
-
-	@Test
-	public void TC_102_NameCannotEmpty() {
-		log.info("TC_102_NameCannotEmpty");
-		newCustomerPage = homePage.openNewCustomerPage();
 	}
 
 	@Test
@@ -73,8 +51,6 @@ public class NewCustomer extends CommonTestcases {
 		log.info("New Customer_01 Step 03 - Verify Text Username Error");
 		verifyEquals(getData(data, "nameCannotEmptyMsg"),
 				newCustomerPage.getDynamicMsg("Customer name must not be blank"));
-
-		TC_100_NameCannotEmpty();
 
 	}
 
@@ -95,7 +71,6 @@ public class NewCustomer extends CommonTestcases {
 		verifyEquals(getData(data, "cannotSpecialCharacterMsg"),
 				newCustomerPage.getDynamicMsg("Special characters are not allowed"));
 
-		TC_101_NameCannotEmpty();
 	}
 
 	@Test
@@ -106,7 +81,6 @@ public class NewCustomer extends CommonTestcases {
 		verifyEquals(getData(data, "firstCharacterBlankSpaceMsg"),
 				newCustomerPage.getDynamicMsg("First character can not have space"));
 
-		TC_102_NameCannotEmpty();
 	}
 
 	@Test
@@ -116,8 +90,6 @@ public class NewCustomer extends CommonTestcases {
 		log.info("New Customer_01 Step 03 - Verify Text Address Error");
 		verifyEquals(getData(data, "addressCannotEmptyMsg"),
 				newCustomerPage.getDynamicMsg("Address Field must not be blank"));
-
-		TC_102_NameCannotEmpty();
 
 	}
 

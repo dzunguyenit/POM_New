@@ -4,7 +4,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import com.CommonPages.CommonFuntions;
 import com.bankguru.builder.NewCustomerBuilder.Customer.CustomerAccount;
@@ -140,12 +139,6 @@ public class NewCustomerPage extends CommonFuntions {
 		waitVisible(CUSTOMERNAME_TXT);
 		highlightElement(CUSTOMERNAME_TXT);
 		inputKeys(CUSTOMERNAME_TXT, Keys.TAB);
-	}
-
-	public EditCustomerPage openEditCustomerPage() {
-		waitVisible(EDIT_CUSTOMER_LINK);
-		click(EDIT_CUSTOMER_LINK);
-		return PageFactory.initElements(driver, EditCustomerPage.class);
 	}
 
 	public String getDynamicMsg(String value) {
