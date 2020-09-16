@@ -13,42 +13,51 @@ public class RegisterPage extends CommonFuntions {
 		super(driver);
 	}
 
+	@FindBy(xpath = "//input[@name='email']")
+	WebElement txtEmail;
+
+	@FindBy(xpath = "//input[@name='password']")
+	WebElement txtPassword;
+
+	@FindBy(xpath = "(//input[@inputmode='numeric'])[1]")
+	WebElement txtOTP;
+
+	@FindBy(css = "#click-registration-submit")
+	WebElement btnCreateAccount;
+
 	@FindBy(id = "header_register")
-	WebElement registerBtn;
+	WebElement btnRegister;
 
-	@FindBy(name = "emailid")
-	WebElement EMAIL_ID_TXT;
+	public void inputEmail(String email) {
+		waitVisible(txtEmail);
+		input(txtEmail, email);
+	}
 
-	@FindBy(xpath = "//td[contains(text(),'User ID :')]/following-sibling::td")
-	WebElement USER_ID_TEXT;
+	public void inputPassword(String pass) {
+		waitVisible(txtPassword);
+		input(txtPassword, pass);
+	}
 
-	@FindBy(xpath = "//td[contains(text(),'Password :')]/following-sibling::td")
-	WebElement PASSWORD_ID_TEXT;
+	public void inputOtp(String otp) {
+		waitVisible(txtOTP);
+		input(txtOTP, otp);
+	}
 
-	public void inputEmail(String emailValue) {
-		waitVisible(EMAIL_ID_TXT);
-		input(EMAIL_ID_TXT, emailValue);
+	public void clickCreateAccount() {
+		waitVisible(btnCreateAccount);
+		click(btnCreateAccount);
 	}
 
 	public void clickRegister() {
-		waitVisible(registerBtn);
-		click(registerBtn);
+		waitVisible(btnRegister);
+		click(btnRegister);
 	}
 
-	public String getUserIDInfo() {
-		waitVisible(USER_ID_TEXT);
-		highlightElement(USER_ID_TEXT);
-		return getText(USER_ID_TEXT);
-	}
-
-	public String getPasswordIDInfo() {
-		waitVisible(PASSWORD_ID_TEXT);
-		highlightElement(PASSWORD_ID_TEXT);
-		return getText(PASSWORD_ID_TEXT);
-	}
-
-	public LoginPage openLoginPage(String url) {
+	public EmailOTPPage openEmailUrl(String url) {
+		openTab();
+		switchWindowTab(1);
 		openUrl(url);
-		return PageFactory.initElements(driver, LoginPage.class);
+		return PageFactory.initElements(driver, EmailOTPPage.class);
 	}
+
 }

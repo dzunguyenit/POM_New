@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -100,6 +102,17 @@ public class CommonTestcases {
 		Date date = new Date();
 		String email = dateFormat.format(date);
 		return email;
+	}
+
+	public String getTextRegex(String regex, String text) {
+		String textRegex = "";
+		Pattern patternRegex = Pattern.compile(regex);
+		Matcher m = patternRegex.matcher(text);
+
+		if (m.find()) {
+			textRegex = m.group(1);
+		}
+		return textRegex;
 	}
 
 	protected void verifyTrue(boolean condition) {

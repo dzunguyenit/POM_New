@@ -1,8 +1,8 @@
 package com.CommonPages;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -30,7 +30,17 @@ public class CommonFuntions {
 	// Web Browser
 	public void openUrl(String url) {
 		driver.get(url);
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+	}
+
+	public void closeTab(int number) {
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(number));
+		driver.close();
+	}
+
+	public void switchWindowTab(int number) {
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(number));
 	}
 
 	public String getTitle() {
@@ -67,6 +77,10 @@ public class CommonFuntions {
 
 	// Web Element
 	public void click(WebElement element) {
+		element.click();
+	}
+
+	public void clickByJs(WebElement element) {
 		((JavascriptExecutor) driver).executeScript(jsColorBorderElement, element);
 		element.click();
 	}
@@ -85,11 +99,10 @@ public class CommonFuntions {
 
 	// Clear and sendkey
 	public void input(WebElement element, String value) {
-		element.clear();
 		element.sendKeys(value);
 	}
 
-	public void onlyInput(WebElement element, String value) {
+	public void clearAndInput(WebElement element, String value) {
 		element.sendKeys(value);
 	}
 
@@ -205,6 +218,14 @@ public class CommonFuntions {
 				break;
 			}
 		}
+	}
+
+	public void closeCurrentTab(int number) {
+		closeTab(number);
+	}
+
+	public void closeTab(String title) {
+		driver.close();
 	}
 
 	// Bonus
@@ -383,6 +404,15 @@ public class CommonFuntions {
 	public void waitVisible(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, timeouts);
 		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+
+	public void waitVisible(WebElement element, long time) {
+		WebDriverWait wait = new WebDriverWait(driver, time);
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+
+	public void openTab() {
+		((JavascriptExecutor) driver).executeScript("window.open()");
 	}
 
 	public void waitVisibleDynamic(String value) {

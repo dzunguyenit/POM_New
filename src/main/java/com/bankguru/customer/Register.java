@@ -5,26 +5,27 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.CommonPages.CommonTestcases;
 import com.CommonPages.ExcelUtil;
-import com.bankguru.HomePage;
-import com.bankguru.LoginPage;
+import com.bankguru.EmailOTPPage;
 import com.bankguru.RegisterPage;
 
 public class Register extends CommonTestcases {
 	WebDriver driver;
-	LoginPage loginPage;
 	RegisterPage registerPage;
-	HomePage homePage;
+	EmailOTPPage emailOTPPage;
 	String userPath = System.getProperty("user.dir");
 	ExcelUtil readExcel;
-
-	String email;
-	static String emailLogin, passwordLogin;
+	String username, passsword, currentRow;
+	String excelPath = System.getProperty("user.dir").concat("/data/BinanceAccount.xlsx");
+	String urlMail = "https://www.guerrillamail.com/inbox";
+	String emailRegex;
 
 	@Parameters({ "browser", "version", "url" })
 	@BeforeClass
@@ -33,24 +34,46 @@ public class Register extends CommonTestcases {
 		log.info("----------OPEN BROWSER-----------");
 		driver = openMultiBrowser(browser, version, url);
 		readExcel = new ExcelUtil();
-		String excelPath = System.getProperty("user.dir").concat("/data/BinanceAccount.xlsx");
-		
-		List<String> listAccount = readExcel.getAccountInfo(excelPath);
-	
-		String username = listAccount.get(0);
-		String passsword = listAccount.get(1);
 
-		log.info("-----Email--------   =  " + email);
+	}
+
+	@BeforeMethod
+	public void beforeMethod() {
+		List<String> listAccount = readExcel.getAccountInfo(excelPath);
+
+		username = listAccount.get(0);
+		passsword = listAccount.get(1);
+		currentRow = listAccount.get(2);
+
+		emailRegex = getTextRegex("(.*)@.*", username);
+
+		System.out.println("-----Username--------   = " + username);
+		System.out.println("-----Password--------   = " + passsword);
+		System.out.println("-----Dong hien tai---   = " + currentRow);
 
 	}
 
 	@Test
 	public void getAccountRegister() {
 		registerPage = PageFactory.initElements(driver, RegisterPage.class);
-		registerPage.inputEmail(email);
-//		registerPage.clickSubmitButton();
-		emailLogin = registerPage.getUserIDInfo();
-		passwordLogin = registerPage.getPasswordIDInfo();
+		registerPage.clickRegister();
+		registerPage.inputEmail(username);
+		registerPage.inputPassword(passsword);
+		registerPage.clickCreateAccount();
+		emailOTPPage = registerPage.openEmailUrl(urlMail);
+		emailOTPPage.inputEmailOTP(emailRegex);
+		emailOTPPage.selectSuffixEmail("grr.la");
+		emailOTPPage.clickSet();
+		String otp = emailOTPPage.getOTP();
+		emailOTPPage.closeCurrentTab(1);
+		registerPage = emailOTPPage.openEnterOTPPage();
+		registerPage.inputOtp(otp);
+
+	}
+
+	@AfterMethod
+	public void afterMethod() {
+		readExcel.updateAddressWallet(excelPath, Integer.parseInt(currentRow), "VU", "NGUYEN");
 	}
 
 	@AfterClass
