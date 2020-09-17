@@ -31,17 +31,17 @@ public class Register extends CommonTestcases {
 	@Parameters({ "browser", "version", "url" })
 	@BeforeClass
 	public void beforeClass(String browser, String version, String url) {
-		registerPage = PageFactory.initElements(driver, RegisterPage.class);
+
 		log.info("----------OPEN BROWSER-----------");
 		driver = openMultiBrowser(browser, version, url);
+		registerPage = PageFactory.initElements(driver, RegisterPage.class);
 		readExcel = new ExcelUtil();
 
 	}
 
-	@Parameters("url")
 	@BeforeMethod
-	public void beforeMethod(String url) {
-		registerPage.openBinancePage(url);
+	public void beforeMethod() {
+		registerPage.openBinancePage("https://www.binance.com/");
 		List<String> listAccount = readExcel.getAccountInfo(excelPath);
 
 		username = listAccount.get(0);
@@ -77,6 +77,8 @@ public class Register extends CommonTestcases {
 		registerPage.clickUnderStand();
 		kavaAddress = registerPage.getKavaAddress();
 		memoAddress = registerPage.getKavaMemo();
+		System.out.println("--------kavaAddress------- = " + kavaAddress);
+		System.out.println("--------memoAddress------- = " + memoAddress);
 
 	}
 

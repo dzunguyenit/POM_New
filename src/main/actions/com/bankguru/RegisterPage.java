@@ -25,7 +25,7 @@ public class RegisterPage extends CommonFuntions {
 	@FindBy(xpath = "(//canvas)[2]")
 	WebElement qrCode;
 
-	@FindBy(css = "//*[@id='memoId']/preceding-sibling::div")
+	@FindBy(xpath = "//*[@id='memoId']/preceding-sibling::div")
 	WebElement lbKavaMemo;
 
 	@FindBy(xpath = "//*[@class='css-b11n5x']")
@@ -85,13 +85,11 @@ public class RegisterPage extends CommonFuntions {
 	}
 
 	public String getKavaAddress() {
-		waitVisible(lbKavaAddress);
 		scrollToElement(qrCode);
 		return getText(lbKavaAddress);
 	}
 
 	public String getKavaMemo() {
-		waitVisible(lbKavaMemo);
 		return getText(lbKavaMemo);
 	}
 
