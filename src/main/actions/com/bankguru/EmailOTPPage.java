@@ -45,7 +45,7 @@ public class EmailOTPPage extends CommonFuntions {
 	}
 
 	public String getOTP() {
-		waitVisible(lbTitleEmail, 120);
+		waitVisible(lbTitleEmail, 240);
 		click(lbTitleEmail);
 		String textOtp = getText(lbOTPCode);
 		return textOtp;

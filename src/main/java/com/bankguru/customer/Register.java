@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -29,19 +27,13 @@ public class Register extends CommonTestcases {
 	String emailRegex;
 
 	@Parameters({ "browser", "version", "url" })
-	@BeforeClass
-	public void beforeClass(String browser, String version, String url) {
-
-		log.info("----------OPEN BROWSER-----------");
+	@BeforeMethod
+	public void beforeMethod(String browser, String version, String url) {
 		driver = openMultiBrowser(browser, version, url);
 		registerPage = PageFactory.initElements(driver, RegisterPage.class);
 		readExcel = new ExcelUtil();
 
-	}
-
-	@BeforeMethod
-	public void beforeMethod() {
-		registerPage.openBinancePage("https://www.binance.com/");
+		registerPage.openBinancePage("https://accounts.binance.com/en/register");
 		List<String> listAccount = readExcel.getAccountInfo(excelPath);
 
 		username = listAccount.get(0);
@@ -60,7 +52,7 @@ public class Register extends CommonTestcases {
 	@Test(invocationCount = 600)
 	public void getAccountRegister() {
 
-		registerPage.clickRegister();
+//		registerPage.clickRegister();
 		registerPage.inputEmail(username);
 		registerPage.inputPassword(passsword);
 		registerPage.clickCreateAccount();
@@ -79,16 +71,18 @@ public class Register extends CommonTestcases {
 		memoAddress = registerPage.getKavaMemo();
 		System.out.println("--------kavaAddress------- = " + kavaAddress);
 		System.out.println("--------memoAddress------- = " + memoAddress);
+		registerPage.clickLogOut();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	@AfterMethod
 	public void afterMethod() {
 		readExcel.updateAddressWallet(excelPath, Integer.parseInt(currentRow), kavaAddress, memoAddress);
-	}
-
-	@AfterClass
-	public void afterClass() {
 		closeBrowser();
 	}
 
