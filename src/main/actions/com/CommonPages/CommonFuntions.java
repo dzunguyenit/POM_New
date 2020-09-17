@@ -103,6 +103,7 @@ public class CommonFuntions {
 	}
 
 	public void clearAndInput(WebElement element, String value) {
+		element.clear();
 		element.sendKeys(value);
 	}
 
@@ -129,8 +130,7 @@ public class CommonFuntions {
 		return element.getFirstSelectedOption().getText();
 	}
 
-	public String getAtribute(String locator, String attribute) {
-		WebElement element = driver.findElement(By.xpath(locator));
+	public String getAtribute(WebElement element, String attribute) {
 		return element.getAttribute(attribute);
 	}
 
@@ -371,8 +371,7 @@ public class CommonFuntions {
 		}
 	}
 
-	public Object scrollToElement(String locator) {
-		WebElement element = driver.findElement(By.xpath(locator));
+	public Object scrollToElement(WebElement element) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			return js.executeScript("arguments[0].scrollIntoView(true);", element);

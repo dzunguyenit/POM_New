@@ -22,9 +22,10 @@ public class Register extends CommonTestcases {
 	EmailOTPPage emailOTPPage;
 	String userPath = System.getProperty("user.dir");
 	ExcelUtil readExcel;
-	String username, passsword, currentRow;
+	String username, passsword, currentRow, kavaAddress, memoAddress;
 	String excelPath = System.getProperty("user.dir").concat("/data/BinanceAccount.xlsx");
 	String urlMail = "https://www.guerrillamail.com/inbox";
+	String urlKava = "https://www.binance.com/en/my/wallet/account/main/deposit/crypto/KAVA";
 	String emailRegex;
 
 	@Parameters({ "browser", "version", "url" })
@@ -50,10 +51,11 @@ public class Register extends CommonTestcases {
 		System.out.println("-----Username--------   = " + username);
 		System.out.println("-----Password--------   = " + passsword);
 		System.out.println("-----Dong hien tai---   = " + currentRow);
+		System.out.println("-----emailRegex---   = " + emailRegex);
 
 	}
 
-	@Test
+	@Test(invocationCount = 600)
 	public void getAccountRegister() {
 		registerPage = PageFactory.initElements(driver, RegisterPage.class);
 		registerPage.clickRegister();
@@ -68,12 +70,17 @@ public class Register extends CommonTestcases {
 		emailOTPPage.closeCurrentTab(1);
 		registerPage = emailOTPPage.openEnterOTPPage();
 		registerPage.inputOtp(otp);
+		registerPage.clickGoToDashBoard();
+		registerPage.openWalletPage(urlKava);
+		registerPage.clickUnderStand();
+		kavaAddress = registerPage.getKavaAddress();
+		memoAddress = registerPage.getKavaMemo();
 
 	}
 
 	@AfterMethod
 	public void afterMethod() {
-		readExcel.updateAddressWallet(excelPath, Integer.parseInt(currentRow), "VU", "NGUYEN");
+		readExcel.updateAddressWallet(excelPath, Integer.parseInt(currentRow), kavaAddress, memoAddress);
 	}
 
 	@AfterClass
