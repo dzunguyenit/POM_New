@@ -36,7 +36,7 @@ public class Register extends CommonTestcases {
 		registerPage.openBinancePage("https://accounts.binance.com/en/register");
 		List<String> listAccount = readExcel.getAccountInfo(excelPath);
 
-		randomUsername = "cris" + randomUniqueNumber() + "@grr.la";
+		randomUsername = randomCharacter(5) + randomUniqueNumber() + "@grr.la";
 
 		password = "$Hoangxuan68@$";
 		currentRow = listAccount.get(0);

@@ -4,6 +4,7 @@ import java.io.File;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -53,6 +54,19 @@ public class CommonTestcases {
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		return driver;
+	}
+
+	public String randomCharacter(int lengh) {
+		String alphabet = "abcdefghijklmnopqrstuvwxyz";
+		String s = "";
+		Random random = new Random();
+		for (int i = 0; i < lengh; i++) {
+			char c = alphabet.charAt(random.nextInt(26));
+			s += c;
+		}
+
+		return s;
+
 	}
 
 	public String randomUniqueNumber() {
