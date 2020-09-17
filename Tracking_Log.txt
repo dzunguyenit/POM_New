@@ -1,1 +1,10 @@
-2020-09-17 11:47:44,036 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:11,342 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:17,821 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:22,243 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:26,245 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:29,769 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:34,529 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:37,533 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:40,958 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:45,071 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------
+2020-09-17 11:57:48,980 INFO  com.bankguru.customer.Register - ----------OPEN BROWSER-----------

@@ -266,8 +266,7 @@ public class CommonFuntions {
 		action.doubleClick(element).perform();
 	}
 
-	public void hover(String locator) {
-		WebElement element = driver.findElement(By.xpath(locator));
+	public void hover(WebElement element) {
 		Actions action = new Actions(driver);
 		action.moveToElement(element).perform();
 	}

@@ -19,14 +19,19 @@ public class RegisterPage extends CommonFuntions {
 	@FindBy(xpath = "//*[@class='css-10ok25h']")
 	WebElement btnUnderstand;
 
-	@FindBy(css = "#address")
+	@FindBy(xpath = "//*[@id='address']/preceding-sibling::div")
 	WebElement lbKavaAddress;
 
 	@FindBy(xpath = "(//canvas)[2]")
 	WebElement qrCode;
 
-	@FindBy(css = "#memoId")
+	@FindBy(css = "//*[@id='memoId']/preceding-sibling::div")
 	WebElement lbKavaMemo;
+
+	@FindBy(xpath = "//*[@class='css-b11n5x']")
+	WebElement lbUser;
+	@FindBy(css = "#header_logout")
+	WebElement lbLogOut;
 
 	@FindBy(xpath = "//input[@name='password']")
 	WebElement txtPassword;
@@ -73,15 +78,21 @@ public class RegisterPage extends CommonFuntions {
 		click(btnUnderstand);
 	}
 
+	public void clickLogOut() {
+		hover(lbUser);
+		waitVisible(lbLogOut);
+		click(lbLogOut);
+	}
+
 	public String getKavaAddress() {
 		waitVisible(lbKavaAddress);
 		scrollToElement(qrCode);
-		return getAtribute(lbKavaAddress, "data-clipboard-text");
+		return getText(lbKavaAddress);
 	}
 
 	public String getKavaMemo() {
 		waitVisible(lbKavaMemo);
-		return getAtribute(lbKavaMemo, "data-clipboard-text");
+		return getText(lbKavaMemo);
 	}
 
 	public void openWalletPage(String url) {
@@ -96,6 +107,10 @@ public class RegisterPage extends CommonFuntions {
 	public void clickRegister() {
 		waitVisible(btnRegister);
 		click(btnRegister);
+	}
+
+	public void openBinancePage(String url) {
+		openUrl(url);
 	}
 
 	public EmailOTPPage openEmailUrl(String url) {
