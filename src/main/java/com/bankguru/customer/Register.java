@@ -33,7 +33,7 @@ public class Register extends CommonTestcases {
 		registerPage = PageFactory.initElements(driver, RegisterPage.class);
 		readExcel = new ExcelUtil();
 
-		registerPage.openBinancePage("https://accounts.binance.com/en/register");
+//		registerPage.openBinancePage("https://accounts.binance.com/en/register");
 		List<String> listAccount = readExcel.getAccountInfo(excelPath);
 
 		randomUsername = randomCharacter(5) + randomUniqueNumber() + "@grr.la";
@@ -47,7 +47,7 @@ public class Register extends CommonTestcases {
 
 		emailRegex = getTextRegex("(.*)@.*", randomUsername);
 
-		System.out.println("-----emailRegex---   = " + randomUsername);
+		System.out.println("-----emailRegex---   = " + emailRegex);
 
 	}
 
@@ -73,12 +73,12 @@ public class Register extends CommonTestcases {
 		memoAddress = registerPage.getKavaMemo();
 		System.out.println("--------kavaAddress------- = " + kavaAddress);
 		System.out.println("--------memoAddress------- = " + memoAddress);
-		registerPage.clickLogOut();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		registerPage.clickLogOut();
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 
 	}
 
