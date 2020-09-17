@@ -409,6 +409,11 @@ public class CommonFuntions {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
+	public void waitClickable(WebElement element, long time) {
+		WebDriverWait wait = new WebDriverWait(driver, time);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+
 	public void openTab() {
 		((JavascriptExecutor) driver).executeScript("window.open()");
 	}

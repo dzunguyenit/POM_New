@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="tests">
+	<test name="New Customer, Edit Customer on Chrome">
+		<parameter name="browser" value="chrome" />
+		<parameter name="version" value="84.0.4147.30" />
+		<parameter name="url" value="https://accounts.binance.com/en/register" />
+		<classes>
+			<class name="com.bankguru.customer.RegisterCoinMarket" />
+		</classes>
+	</test>
+	<!-- <test name="New Customer, Edit Customer on Firefox"> -->
+	<!-- <parameter name="browser" value="firefox" /> -->
+	<!-- <parameter name="version" value="0.21.0" /> -->
+	<!-- <classes> -->
+	<!-- <class name="com.bankguru.customer.Register" /> -->
+	<!-- <class name="com.bankguru.customer.NewCustomer" /> -->
+	<!-- <class name="com.bankguru.customer.EditCustomer" /> -->
+	<!-- </classes> -->
+	<!-- </test> -->
+</suite> 

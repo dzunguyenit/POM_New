@@ -103,6 +103,45 @@ public class ExcelUtil {
 		return listAccount;
 	}
 
+	public List<String> getAccountInfoCoinMarket(String path) {
+
+		List<String> listAccount = new ArrayList<String>();
+		ExcelUtil readExcel = new ExcelUtil();
+		try {
+			readExcel.setExcelFile(path);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		int rowCount = readExcel.getRowCount();
+		System.out.println("Row = " + rowCount);
+
+		String username;
+		String password;
+		int rowAddress;
+
+//		String account = "";
+		for (int i = 1; i < rowCount; i++) {
+			String status = readExcel.getCellData(i, 6).trim();
+
+			if (!status.equals("True")) {
+				username = readExcel.getCellData(i, 1).trim();
+				listAccount.add(username);
+				password = readExcel.getCellData(i, 2).trim();
+				listAccount.add(password);
+				rowAddress = i;
+
+				listAccount.add(String.valueOf(rowAddress));
+				System.out.println("username = " + username);
+				System.out.println("password = " + password);
+				System.out.println("rowAddress = " + rowAddress);
+
+				break;
+			}
+
+		}
+		return listAccount;
+	}
+
 	public void updateAddressWallet(String path, int rowAddress, String username, String kavaAddress,
 			String memoAddress) {
 		ExcelUtil readExcel = new ExcelUtil();
@@ -119,6 +158,18 @@ public class ExcelUtil {
 
 	}
 
+	public void updateAddressWalletCoinMarket(String path, int rowAddress, String username) {
+		ExcelUtil readExcel = new ExcelUtil();
+		try {
+			readExcel.setExcelFile(path);
+			readExcel.setAddressWallet(path, rowAddress, 6, username);
+			readExcel.setAddressWallet(path, rowAddress, 7, "True");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public static void main(String[] args) throws Exception {
 		ExcelUtil readExcel = new ExcelUtil();
 		String excelPath = System.getProperty("user.dir").concat("/data/BinanceAccount.xlsx");
@@ -126,7 +177,7 @@ public class ExcelUtil {
 		data = readExcel.getAccountInfo(excelPath);
 		System.out.println("Password = " + data.get(0));
 		System.out.println("Dong hien tai = " + data.get(1));
-		readExcel.updateAddressWallet(excelPath, Integer.parseInt(data.get(1)),"123123", "VU", "NGUYEN");
+		readExcel.updateAddressWallet(excelPath, Integer.parseInt(data.get(1)), "123123", "VU", "NGUYEN");
 	}
 
 }
