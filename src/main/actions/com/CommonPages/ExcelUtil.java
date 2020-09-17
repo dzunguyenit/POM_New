@@ -64,7 +64,6 @@ public class ExcelUtil {
 		}
 	}
 
-
 	public List<String> getAccountInfo(String path) {
 
 		List<String> listAccount = new ArrayList<String>();
@@ -77,24 +76,24 @@ public class ExcelUtil {
 		int rowCount = readExcel.getRowCount();
 		System.out.println("Row = " + rowCount);
 
-		String username;
-		String password;
+//		String username;
+//		String password;
 		int rowAddress;
 
-		String account = "";
+//		String account = "";
 		for (int i = 1; i < rowCount; i++) {
 			String status = readExcel.getCellData(i, 5).trim();
 
 			if (!status.equals("True")) {
-				username = readExcel.getCellData(i, 1).trim();
-				listAccount.add(username);
-				password = readExcel.getCellData(i, 2).trim();
-				listAccount.add(password);
+//				username = readExcel.getCellData(i, 1).trim();
+//				listAccount.add(username);
+//				password = readExcel.getCellData(i, 2).trim();
+//				listAccount.add(password);
 				rowAddress = i;
 
 				listAccount.add(String.valueOf(rowAddress));
-				System.out.println("username = " + account);
-				System.out.println("password = " + password);
+//				System.out.println("username = " + account);
+//				System.out.println("password = " + password);
 				System.out.println("rowAddress = " + rowAddress);
 
 				break;
@@ -104,10 +103,13 @@ public class ExcelUtil {
 		return listAccount;
 	}
 
-	public void updateAddressWallet(String path, int rowAddress, String kavaAddress, String memoAddress) {
+	public void updateAddressWallet(String path, int rowAddress, String username, String kavaAddress,
+			String memoAddress) {
 		ExcelUtil readExcel = new ExcelUtil();
 		try {
 			readExcel.setExcelFile(path);
+			readExcel.setAddressWallet(path, rowAddress, 1, username);
+			readExcel.setAddressWallet(path, rowAddress, 2, "$Hoangxuan68@$");
 			readExcel.setAddressWallet(path, rowAddress, 3, kavaAddress);
 			readExcel.setAddressWallet(path, rowAddress, 4, memoAddress);
 			readExcel.setAddressWallet(path, rowAddress, 5, "True");
@@ -122,10 +124,9 @@ public class ExcelUtil {
 		String excelPath = System.getProperty("user.dir").concat("/data/BinanceAccount.xlsx");
 		List<String> data = new ArrayList<String>();
 		data = readExcel.getAccountInfo(excelPath);
-		System.out.println("Username = " + data.get(0));
-		System.out.println("Password = " + data.get(1));
-		System.out.println("Dong hien tai = " + data.get(2));
-		readExcel.updateAddressWallet(excelPath, Integer.parseInt(data.get(2)), "VU", "NGUYEN");
+		System.out.println("Password = " + data.get(0));
+		System.out.println("Dong hien tai = " + data.get(1));
+		readExcel.updateAddressWallet(excelPath, Integer.parseInt(data.get(1)),"123123", "VU", "NGUYEN");
 	}
 
 }

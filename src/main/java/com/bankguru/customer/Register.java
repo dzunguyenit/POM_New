@@ -20,7 +20,7 @@ public class Register extends CommonTestcases {
 	EmailOTPPage emailOTPPage;
 	String userPath = System.getProperty("user.dir");
 	ExcelUtil readExcel;
-	String username, passsword, currentRow, kavaAddress, memoAddress;
+	String randomUsername, password, currentRow, kavaAddress, memoAddress;
 	String excelPath = System.getProperty("user.dir").concat("/data/BinanceAccount.xlsx");
 	String urlMail = "https://www.guerrillamail.com/inbox";
 	String urlKava = "https://www.binance.com/en/my/wallet/account/main/deposit/crypto/KAVA";
@@ -36,16 +36,18 @@ public class Register extends CommonTestcases {
 		registerPage.openBinancePage("https://accounts.binance.com/en/register");
 		List<String> listAccount = readExcel.getAccountInfo(excelPath);
 
-		username = listAccount.get(0);
-		passsword = listAccount.get(1);
-		currentRow = listAccount.get(2);
+		randomUsername = "cris" + randomUniqueNumber() + "@grr.la";
 
-		emailRegex = getTextRegex("(.*)@.*", username);
+		password = "$Hoangxuan68@$";
+		currentRow = listAccount.get(0);
 
-		System.out.println("-----Username--------   = " + username);
-		System.out.println("-----Password--------   = " + passsword);
+		System.out.println("-----Username--------   = " + randomUsername);
+		System.out.println("-----Password--------   = " + password);
 		System.out.println("-----Dong hien tai---   = " + currentRow);
-		System.out.println("-----emailRegex---   = " + emailRegex);
+
+		emailRegex = getTextRegex("(.*)@.*", randomUsername);
+
+		System.out.println("-----emailRegex---   = " + randomUsername);
 
 	}
 
@@ -53,8 +55,8 @@ public class Register extends CommonTestcases {
 	public void getAccountRegister() {
 
 //		registerPage.clickRegister();
-		registerPage.inputEmail(username);
-		registerPage.inputPassword(passsword);
+		registerPage.inputEmail(randomUsername);
+		registerPage.inputPassword(password);
 		registerPage.clickCreateAccount();
 		emailOTPPage = registerPage.openEmailUrl(urlMail);
 		emailOTPPage.inputEmailOTP(emailRegex);
@@ -82,7 +84,8 @@ public class Register extends CommonTestcases {
 
 	@AfterMethod
 	public void afterMethod() {
-		readExcel.updateAddressWallet(excelPath, Integer.parseInt(currentRow), kavaAddress, memoAddress);
+		readExcel.updateAddressWallet(excelPath, Integer.parseInt(currentRow), randomUsername, kavaAddress,
+				memoAddress);
 		closeBrowser();
 	}
 
